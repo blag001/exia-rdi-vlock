@@ -34,8 +34,11 @@ if(
 {
 		// on log les actions sur la borne
 	log_file('unlock', $_GET['value']);
+
+		// mode GPIO output
+	exec('gpio mode '.$_GET['value']' out');
 		// on demande au GPIO d'ouvrir l'emplacement
-	exec('gpio '.$_GET['value']. 'set 1');
+	exec('gpio write '.$_GET['value']. ' 1');
 		// retour sur l'API avec un message de validation
 	header('Localization: http://api.vlock.com/index.php?action=unlock_success');
 }
@@ -47,8 +50,11 @@ elseif(
 {
 		// on log les actions sur la borne
 	log_file('lock', $_GET['value']);
+
+		// mode GPIO output
+	exec('gpio mode '.$_GET['value']' out');
 		// on demande au GPIO d'ouvrir l'emplacement
-	exec('gpio '.$_GET['value']. 'set 0');
+	exec('gpio write '.$_GET['value']. ' 0');
 		// retour sur l'API avec un message de validation
 	header('Localization: http://api.vlock.com/index.php?action=lock_success');
 }
