@@ -1,7 +1,8 @@
 <?php
 // declaration du fichier d'interface software/hardware
-	//globale de déclaration,
-constant(STATION) = 'ROUEN-02';
+
+	// constante globale de la station
+define('STATION', 'ROUEN-02');
 
 function _csv($in=null){
 	return _csv('"', '""', $in);
