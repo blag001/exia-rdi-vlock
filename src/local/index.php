@@ -14,13 +14,11 @@ function log_file($action=null, $where=null)
 		mkdir('log/', 0700);
 		//ouverture ou creation du fichier de log
 	$fichier_log = fopen('log/log_' .date('y-m') , 'a+');
-		//definition des variables
-	$date = date('Y-m-d-H:i:s');
 	// $ip = $_SERVER['REMOTE_ADDR']; // @todo on en fait quoi?
 
 		//enregistrement de l'entree
 	fputs($fichier_log ,
-		'"'.$date.'","'.STATION.'","'._csv($action).'","'._csv($where)."\"\n");
+		'"'.date('Y-m-d-H:i:s').'","'.STATION.'","'._csv($action).'","'._csv($where)."\"\n");
 
 		//fermeture du fichier
 	fclose($fichier_log);
@@ -37,7 +35,7 @@ if(
 	log_file('unlock', $_GET['value']);
 
 		// mode GPIO output
-	exec('gpio mode '.$_GET['value']' out');
+	exec('gpio mode '.$_GET['value'].' out');
 		// on demande au GPIO d'ouvrir l'emplacement
 	exec('gpio write '.$_GET['value']. ' 1');
 		// retour sur l'API avec un message de validation
@@ -53,7 +51,7 @@ elseif(
 	log_file('lock', $_GET['value']);
 
 		// mode GPIO output
-	exec('gpio mode '.$_GET['value']' out');
+	exec('gpio mode '.$_GET['value'].' out');
 		// on demande au GPIO d'ouvrir l'emplacement
 	exec('gpio write '.$_GET['value']. ' 0');
 		// retour sur l'API avec un message de validation
