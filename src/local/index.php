@@ -4,10 +4,12 @@
 	// constante globale de la station
 define('STATION', 'ROUEN-02');
 	// constante de l'URL de l'app
-define('WEB_APP', 'http://localhost/vlock'); // http://api.vlock.com
+define('WEB_APP', 'http://localhost/www/vlock'); // http://api.vlock.com
+	// si en test
+$test = true;
 
 function _csv($in=null){
-	return _csv('"', '""', $in);
+	return str_replace('"', '""', $in);
 }
 
 function log_file($action=null, $where=null)
@@ -41,7 +43,10 @@ if(
 		// on demande au GPIO d'ouvrir l'emplacement
 	exec('gpio write '.$_GET['value']. ' 1');
 		// retour sur l'API avec un message de validation
-	header('Location: '.WEB_APP.'/index.php?action=unlock_success');
+	if($test)
+		echo 'unlock 1';
+	else
+		header('Location: '.WEB_APP.'/index.php?action=unlock_success');
 }
 elseif(
 	!empty($_GET['action'])
@@ -57,7 +62,13 @@ elseif(
 		// on demande au GPIO d'ouvrir l'emplacement
 	exec('gpio write '.$_GET['value']. ' 0');
 		// retour sur l'API avec un message de validation
-	header('Location: '.WEB_APP.'/index.php?action=lock_success');
+	if($test)
+		echo 'lock 0';
+	else
+		header('Location: '.WEB_APP.'/index.php?action=lock_success');
 }
 else // en cas d'erreur, on repart sur l'API
-	header('Location: '.WEB_APP.'/index.php');
+	if($test)
+		echo 'error~';
+	else
+		header('Location: '.WEB_APP.'/index.php');
