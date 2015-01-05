@@ -41,7 +41,7 @@ if(
 		// on demande au GPIO d'ouvrir l'emplacement
 	exec('gpio write '.$_GET['value']. ' 1');
 		// retour sur l'API avec un message de validation
-	header('Localization: '.WEB_APP.'/index.php?action=unlock_success');
+	header('Location: '.WEB_APP.'/index.php?action=unlock_success');
 }
 elseif(
 	!empty($_GET['action'])
@@ -57,7 +57,7 @@ elseif(
 		// on demande au GPIO d'ouvrir l'emplacement
 	exec('gpio write '.$_GET['value']. ' 0');
 		// retour sur l'API avec un message de validation
-	header('Localization: '.WEB_APP.'/index.php?action=lock_success');
+	header('Location: '.WEB_APP.'/index.php?action=lock_success');
 }
 else // en cas d'erreur, on repart sur l'API
-	header('Localization: '.WEB_APP.'/index.php');
+	header('Location: '.WEB_APP.'/index.php');
