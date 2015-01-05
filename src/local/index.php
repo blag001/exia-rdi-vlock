@@ -3,6 +3,8 @@
 
 	// constante globale de la station
 define('STATION', 'ROUEN-02');
+	// constante de l'URL de l'app
+define('WEB_APP', 'http://localhost/vlock'); // http://api.vlock.com
 
 function _csv($in=null){
 	return _csv('"', '""', $in);
@@ -39,7 +41,7 @@ if(
 		// on demande au GPIO d'ouvrir l'emplacement
 	exec('gpio write '.$_GET['value']. ' 1');
 		// retour sur l'API avec un message de validation
-	header('Localization: http://api.vlock.com/index.php?action=unlock_success');
+	header('Localization: '.WEB_APP.'/index.php?action=unlock_success');
 }
 elseif(
 	!empty($_GET['action'])
@@ -55,7 +57,7 @@ elseif(
 		// on demande au GPIO d'ouvrir l'emplacement
 	exec('gpio write '.$_GET['value']. ' 0');
 		// retour sur l'API avec un message de validation
-	header('Localization: http://api.vlock.com/index.php?action=lock_success');
+	header('Localization: '.WEB_APP.'/index.php?action=lock_success');
 }
 else // en cas d'erreur, on repart sur l'API
-	header('Localization: http://api.vlock.com/index.php');
+	header('Localization: '.WEB_APP.'/index.php');
