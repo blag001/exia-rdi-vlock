@@ -16,16 +16,11 @@ function log_file($action=null, $where=null)
 {
 	if(!is_dir('log/'))
 		mkdir('log/', 0700);
-		//ouverture ou creation du fichier de log
-	$fichier_log = fopen('log/log_' .date('y-m') , 'a+');
-	// $ip = $_SERVER['REMOTE_ADDR']; // @todo on en fait quoi?
 
 		//enregistrement de l'entree
-	fputs($fichier_log ,
-		'"'.date('Y-m-d-H:i:s').'","'.STATION.'","'._csv($action).'","'._csv($where)."\"\n");
-
-		//fermeture du fichier
-	fclose($fichier_log);
+	file_put_contents('log/log_' .date('y-m') ,
+		'"'.date('Y-m-d-H:i:s').'","'.STATION.'","'._csv($action).'","'._csv($where)."\"\n",
+		FILE_APPEND);
 }
 
 	// si on demande un delock
