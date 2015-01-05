@@ -4,6 +4,9 @@
 // chargement et initialisation //
 //////////////////////////////////
 
+define('LOCAL_APP', 'http://localhost');
+
+
 // fonctions pour auto-charger les Class.ctr et les OdbClass.mdl
 function load_controller($class)
 {
