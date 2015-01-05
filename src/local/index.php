@@ -18,7 +18,7 @@ function log_file($action=null, $where=null)
 		mkdir('log/', 0700);
 
 		//enregistrement de l'entree
-	file_put_contents('log/log_' .date('y-m') ,
+	file_put_contents('log/log_' .date('y-m').'.csv' ,
 		'"'.date('Y-m-d-H:i:s').'","'.STATION.'","'._csv($action).'","'._csv($where)."\"\n",
 		FILE_APPEND);
 }
