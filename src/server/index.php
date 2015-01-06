@@ -28,7 +28,7 @@ require_once ('toolSql/Bdd.class.php');
 session_start();
 
 // on set les obj de connexion SQL et NoSql
-// require_once 'inc/connexion.inc.php';
+require_once 'inc/connexion.inc.php';
 // fonction pour afficher les template
 require_once 'inc/function.inc.php';
 

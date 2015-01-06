@@ -24,4 +24,4 @@
 	 * @param bool $production (dés)active les messages d'erreurs
 	 */
 if (Bdd::needInstance())
-	$_SESSION['bdd'] = new Bdd(null, 'sio_reparation', 'root', '', false);
+	$_SESSION['bdd'] = new Bdd(null, 'exia_vlock', 'root', '', false);

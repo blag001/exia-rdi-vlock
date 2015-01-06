@@ -5,7 +5,6 @@
 			if(!empty($_SESSION['tampon']['error']) and is_array($_SESSION['tampon']['error']))
 			{
 				foreach ($_SESSION['tampon']['error'] as $key=>$value) {
-					// if(is_int($key))
 						echo $value .'<br />';
 				}
 
