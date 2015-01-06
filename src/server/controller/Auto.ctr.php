@@ -114,8 +114,8 @@ class Auto
 				{
 					$_SESSION['tampon']['success'][] = 'Emplacement n°'.$socket. ' déverrouillé !';
 
-					// header('Location: '.LOCAL_APP.'/index.php?action=unlock&value='.$socket);
-					// die('unlock&value='.$socket);
+					header('Location: '.LOCAL_APP.'/index.php?action=unlock&value='.$socket);
+					die('unlock&value='.$socket);
 				}
 				else
 					$_SESSION['tampon']['error'][] = 'Erreur lors du dévérrouillage';
@@ -129,8 +129,8 @@ class Auto
 					{
 						$_SESSION['tampon']['success'][] = 'Emplacement n°'.$_POST['socket']. ' verrouillé !';
 							// on demande a la station de faire le lock
-						// header('Location: '.LOCAL_APP.'/index.php?action=lock&value='.$_POST['socket']);
-						// die('lock&value='.$_POST['socket']);
+						header('Location: '.LOCAL_APP.'/index.php?action=lock&value='.$_POST['socket']);
+						die('lock&value='.$_POST['socket']);
 					}
 					else
 						$_SESSION['tampon']['error'][] = 'Erreur lors du vérrouillage';

@@ -4,7 +4,7 @@
 // chargement et initialisation //
 //////////////////////////////////
 
-define('LOCAL_APP', 'http://localhost');
+define('LOCAL_APP', 'http://192.168.1.50');
 
 
 // fonctions pour auto-charger les Class.ctr et les OdbClass.mdl
