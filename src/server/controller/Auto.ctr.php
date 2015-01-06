@@ -118,7 +118,7 @@ class Auto
 					die('unlock&value='.$socket);
 				}
 				else
-					$_SESSION['tampon']['error'][] = 'Erreur lors du dévérrouillage';
+					$_SESSION['tampon']['error'][] = 'Erreur lors du déverrouillage';
 			}
 			elseif(isset($_POST['socket']) and $_POST['socket'] !=='')
 			{
@@ -133,7 +133,7 @@ class Auto
 						die('lock&value='.$_POST['socket']);
 					}
 					else
-						$_SESSION['tampon']['error'][] = 'Erreur lors du vérrouillage';
+						$_SESSION['tampon']['error'][] = 'Erreur lors du verrouillage';
 
 				}
 				else

@@ -1,6 +1,6 @@
 <div class="container">
 	<form id="form_inter" class="form-add" role="form" action="index.php" method="POST" >
-		<h1 class="form-add-heading" id="idTitle" >Sélectionnez l'emplacement à vérrouiller</h1>
+		<h1 class="form-add-heading" id="idTitle" >Sélectionnez l'emplacement à verrouiller</h1>
 
 		<div class="form-group">
 			<input type="hidden" name="id_user" class="form-control" value="<?php echo $arg['id_user'];?>" >
@@ -23,7 +23,7 @@
 					<?php
 				}
 				?>
-        	<button type="submit" class="btn btn-lg btn-primary btn-block" name="sbmtLockSocket" id="idSubmit" >Vérrouiller</button>
+        	<button type="submit" class="btn btn-lg btn-primary btn-block" name="sbmtLockSocket" id="idSubmit" >Verrouiller</button>
 		</div>
 	</form>
 </div>
