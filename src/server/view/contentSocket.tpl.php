@@ -12,7 +12,7 @@
 					)
 				{
 					?>
-					<select class="form-control" id="socket" name="socket" >
+					<select class="form-control" id="socket" name="socket" autofocus >
 					<?php
 					foreach ($arg['lesSocketFree'] as $unSocket)
 					{
