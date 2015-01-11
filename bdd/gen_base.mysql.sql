@@ -52,6 +52,11 @@ ALTER TABLE `emplacement`
 ALTER TABLE `location`
  ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `location`
+ ADD CONSTRAINT fk_emp_location
+ FOREIGN KEY (`id_emplacement`)
+ REFERENCES `emplacement`(`id`);
+
 
 --
 -- Trigger
@@ -60,44 +65,35 @@ ALTER TABLE `location`
 	-- on change le delimiteur de fin d'instruction
 DELIMITER //
 
-	-- pour les ajout de location, maj le champ de lock
 DROP TRIGGER IF EXISTS `trg_location_insert`;
 //
-
+	-- pour les ajout de location, maj le champ de lock
 CREATE TRIGGER `trg_location_insert`
 BEFORE INSERT ON `location`
 FOR EACH ROW
 BEGIN
-		-- si on fait une insertion :
-
-		-- d'une location sur un emplacement, maj du champ de lock
+		-- insertion d'une location sur un emplacement, maj du champ de lock
 	IF NEW.id_emplacement > 0 THEN
 		UPDATE emplacement SET
 			emplacement.emp_used = 1
 		WHERE emplacement.id = NEW.id_emplacement;
 	END IF;
-
 END;
 //
-
-
-	-- pour les fin de location, maj le champ de lock
+-------------------------------------------------------
 DROP TRIGGER IF EXISTS `trg_location_delete`;
 //
-
+	-- pour les fin de location, maj le champ de lock
 CREATE TRIGGER `trg_location_delete`
 BEFORE DELETE ON `location`
 FOR EACH ROW
 BEGIN
-		-- si on fait un delete
-
-		-- d'une location sur un emplacement, maj du champ de lock
+		-- delete d'une location sur un emplacement, maj du champ de lock
 	IF OLD.id_emplacement > 0 THEN
 		UPDATE emplacement SET
 			emplacement.emp_used = 0
 		WHERE emplacement.id = OLD.id_emplacement;
 	END IF;
-
 END;
 //
 
