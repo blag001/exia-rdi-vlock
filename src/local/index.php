@@ -4,7 +4,7 @@
 	// constante globale de la station
 define('STATION', 'ROUEN-02');
 	// constante de l'URL de l'app
-define('WEB_APP', 'http:///10.42.0.1/www/exia-rdi-vlock/src/server'); // en prod : 'http://api.vlock.com'
+define('WEB_APP', 'http://10.42.0.1/www/exia-rdi-vlock/src/server'); // en prod : 'http://api.vlock.com'
 
 	// si on demande un delock
 if(
